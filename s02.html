@@ -1,0 +1,337 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Mètodes d'Investigació Criminològica Avançada</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/beige.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+
+			<!-- In between the <div="reveal"> and the <div class="slides">-->
+			<header style="position: absolute;top: 5px; left: 5px; right: 5px; text-align: center; z-index:500; font-size:50px; color:white; padding: 5px; font-family: 'League Gothic', Impact, sans-serif"></header>
+			<footer style="position: absolute;bottom: 5px; left: 5px; text-align: center; z-index:500; font-size:12px;  padding: 5px; font-family: Arial, Helvetica, sans-serif"></footer>
+
+
+			<div class="slides">
+
+		<section>
+		<h1>Mètodes d'Investigació Criminològica Avançada</h1>
+		<h3>Sessió 2: Anàlisi quantitatiu</h3>
+		<p><a href="http://johnrbpalmer.com">John Palmer</a>
+		</section>
+
+		
+
+<section>
+<h2>inferència bàsica</h2>
+</section>
+
+<section>
+<h3>Enquestas de Victimització</h3>
+<ul>
+<li><a href="http://ajuntament.barcelona.cat/prevencio/ca/enquesta-de-victimitzaci%C3%B3-de-barcelona-0">Barcelona</a></li>
+<li><a href="http://interior.gencat.cat/ca/el_departament/publicacions/seguretat/estudis_i_enquestes/enquesta_de_seguretat_publica_de_catalunya/">Catalonia</a></li>
+<li><a href="https://www.bjs.gov/index.cfm?ty=dcdetail&iid=245">United States</a></li>
+</ul>
+</section>
+
+<section>
+<a href="http://ajuntament.barcelona.cat/prevencio/ca/enquesta-de-victimitzaci%C3%B3-de-barcelona-0">Enquesta de Victimització de Barcelona</a>
+</section>
+
+<section>
+<img class="stretch" src="images/2015EVB_Informe_Executiu1.jpg">
+</section>
+
+
+<section>
+<img class="stretch" src="images/2015EVB_Informe_Executiu3.jpg">
+</section>
+
+<section>
+<img class="stretch" src="images/EVB_map_close.jpg">
+</section>
+
+<section>
+<p>Que és el barri més perillós?</p>
+</section>
+
+<section>
+<img class="stretch" src="images/2015EVB_Informe_Executiu2.jpg">
+</section>
+
+
+<section>
+<ul style="list-style: none">
+<li><b>Ciutat Vella</b>: 30.2% d'entrevistats (\(n=400\)) han estat victimes d'un o més fets que han considerat delictius durant l'any anterior</li></ul>
+<ul><br>
+<li>Quin percentatge de la població de Ciutat Vella podem inferir de aixo?</li>
+<li>Quin és l'interval de confiança del 95%?</li>
+</ul>
+</section>
+
+<section>
+<h3>Estimació Puntual</h3>
+$$\hat{\theta} = \bar{x}$$
+</section> 
+
+<section>
+<h3>Interval de confiança</h3>
+$$IC_{100\%-\alpha} = \hat{\theta} \pm z_{\alpha}\sqrt{\frac{\hat{\theta}(1-\hat{\theta})}{n}}$$
+</section> 
+
+
+<section>
+$$IC_{95\%} = .302 \pm z_{5\%}\sqrt{\frac{.302(1-.302)}{400}} = .302 \pm .045$$
+<br>
+$$IC_{95\%}  = \left(.257, .347\right)$$
+</section>
+
+<section>
+<ul style="list-style: none">
+<li><b>Sant Marti</b>: 26.6% d'entrevistats (\(n=400\)) han estat victimes d'un o més fets que han considerat delictius durant l'any anterior</li></ul>
+<ul><br>
+<li>Quin percentatge de la població de Sant Marti podem inferir de aixo?</li>
+<li>Quin és l'interval de confiança del 95%?</li>
+</ul>
+</section>
+
+<section>
+$$\hat{\theta} = 26.6\%$$
+<br>
+$$IC_{95\%}  = \left(.223, .309\right)$$
+</section>
+
+<section>
+			<table>
+			<tr>
+			<th>Barri</th><th>\(IC_{95\%}\)</th></tr>
+			<tr><td>Ciutat Vella</td><td>(.257, .347)</td></tr>
+			<tr><td>Sant Marti</td><td>(.223, .309)</td></tr>
+			</table>
+</section>
+
+<section>
+<img class="stretch" src="images/ICV_ci.png">
+</section>
+
+<section>
+<p>Que és el barri més perillós?</p>
+<p>Pots formular una hipòtesi?</p>
+</section>
+
+<section>
+<h3>Hipòtesi simple:</h3>
+$$H_0: \hat{\theta}_{\textrm{cv}} - \hat{\theta}_{\textrm{sm}} = 0$$<br>
+$$H_a: \hat{\theta}_{\textrm{cv}} - \hat{\theta}_{\textrm{sm}} \neq 0$$
+</section>
+
+<section>
+<h3>Hipòtesi unilateral:</h3>
+$$H_0: \hat{\theta}_{\textrm{cv}} - \hat{\theta}_{\textrm{sm}} \leq 0$$<br>
+$$H_a: \hat{\theta}_{\textrm{cv}} - \hat{\theta}_{\textrm{sm}} > 0$$
+</section>
+
+<section>
+<h3>Interval de confiança de la diferència</h3>
+$$IC_{100\%-\alpha} = (\hat{\theta}_{\textrm{cv}} - \hat{\theta}_{\textrm{sm}}) \pm z_{\alpha}\sqrt{\frac{\hat{\theta}_{\textrm{cv}}(1-\hat{\theta}_{\textrm{cv}})}{n_{\textrm{cv}}} + \frac{\hat{\theta}_{\textrm{sm}}(1-\hat{\theta}_{\textrm{sm}})}{n_{\textrm{sm}}}}$$
+</section>
+
+
+<section>
+$$IC_{95\%} = .036 \pm 1.96\sqrt{\frac{.302(1-.302)}{400} + \frac{.266(1-.266)}{400}}$$<br>
+$$IC_{95\%} = (-.026, .098)$$
+</section>
+
+<section>
+<img class="stretch", src="images/ICV_ci_diff.png">
+</section>
+
+
+<section>
+<h3>Tests d'Hipòtesi</h3>
+$$z = \frac{\hat{\theta}_{\textrm{cv}} - \hat{\theta}_{\textrm{sm}}} {  \sqrt{\hat{ \theta }\left(1 - \hat{ \theta }\right)\left(\frac{1}{n_{\textrm{cv}}} + \frac{1}{n_{\textrm{sm}} } \right) }  } $$
+<br>
+$$ \hat{ \theta } = \frac{x_{\textrm{cv}} + x_{\textrm{sm}}}{n_{\textrm{cv}} + n_{\textrm{sm}}}$$
+</section>
+
+<section>
+$$z = \frac{.302 - .266} { \sqrt{.283(1-.283)} \left(  \frac{1}{400} + \frac{1}{400}    \right) } = 1.13$$
+</section>
+
+<section>
+<h3>La mitjana d'una variable contínua</h3>
+<p>per exemple, l'alçada mitjana</p>
+</section>
+
+<section>
+<h3>Estimació Puntual</h3>
+$$\hat{\mu} = \bar{y}$$
+</section> 
+
+<section>
+<h3>Interval de confiança</h3>
+$$IC_{100\%-\alpha} = \bar{y} \pm t_\alpha\frac{s}{\sqrt{n}}$$
+</section> 
+
+<section>
+<p>Per què funciona?</p>
+<ul>
+<li>Màgia?
+</li>
+<li>Teorema del límit central?</li>
+<li>Llei dels grans nombres?</li>
+</ul>
+</section> 
+
+<section>
+<h4>Teorema del límit central</h4>
+</section> 
+
+<section>
+<h4>Llei dels grans nombres</h4>
+</section> 
+
+
+<section>
+$$\sigma_{\bar{y}} = \frac{\sigma}{\sqrt{n}}$$
+</section> 
+
+<section>
+$$\hat{\sigma} = s = \sqrt{\frac{1}{n-1}\sum\left(y-\bar{y}\right)^2}$$
+</ul>
+</section> 
+
+<section data-state="gosset">
+<style>.gosset footer:after { content: "Portrait of William Sealy Gosset, a.k.a. Student, Public Domain, Wikimedia Commons"; color:black;background-color: rgba(0,0,0,0); padding: 5px;}</style>	
+<h3>Distribució t de Student</h3>
+<img class="stretch" src="images/William_Sealy_Gosset.jpg">
+</section>
+
+<section>
+<h3>Distribució t de Student</h3>
+<img class="stretch" src="images/distributions.png">
+</section>
+
+<section>
+<h3>Distribució t de Student</h3>
+<ul>
+<li>graus de llibertat: \(n - 1 \)</li>
+</ul>
+</section>
+
+
+<section>
+<h3>Demostració: Distribució de mostreig</h3>
+<a href="demo_s02.R">R Script</a><br>
+</section>
+
+
+<section>
+<h3>Exercici: Biometria dels estudiants</h3>
+<a href="demo_s02.R">R Script</a><br>
+<a href="http://www.amstat.org/publications/jse/v20n3/mclaren/shoesize.xls">Dataset</a>
+</section>
+
+
+<section>
+<h2>Regressió</h2>
+</section>
+
+<section>
+<h3>L'equació de predicció</h3>
+$$\hat{y} = a + bx$$
+</section>
+
+
+<section>
+<h3>Regressió lineal simple</h3>
+$$b = \frac{\sum\left(x - \bar{x}\right)\left(y - \bar{y}\right)}{\sum\left(x-\bar{x}\right)^2}$$
+<br>
+$$a = \bar{y} - b\bar{x}$$
+</section>
+
+<section>
+<h3>Exercici: Biometria dels estudiants</h3>
+<a href="demo_s02.R">R Script</a><br>
+<a href="http://www.amstat.org/publications/jse/v20n3/mclaren/shoesize.xls">Dataset</a>
+</section>
+
+
+
+<section>
+<h3>Correlació</h3>
+$$r = \left(\frac{s_x}{s_y}\right)b$$ 
+</section>
+
+
+<section>
+<h3>Regressió multivariant</h3>
+</section>
+
+
+
+<section>
+<h3>Models lineals generalitzats</h3>
+</section>
+
+
+
+
+
+							<section data-background="images/pencils.jpg" data-state="footer_pencils">
+								<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+									<h2>Assignments</h2>
+									<ul>
+										<li><b>Read</b>: <a href="http://ref.scielo.org/s96b4x">Arriagada Luco & Morales Lazo (2006)</li>
+									</ul>
+								</div>
+								<style>.footer_pencils footer:after { content: "Pencils, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+								<div>&nbsp;</div>	
+							</section>
+
+						</div>
+					</div>
+
+					<script src="lib/js/head.min.js"></script>
+					<script src="js/reveal.js"></script>
+
+					<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/math/math.js', async: true },
+				     // Zoom in and out with Alt+click
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+
+
+				]
+			});
+		</script>
+	</body>
+	</html>
+

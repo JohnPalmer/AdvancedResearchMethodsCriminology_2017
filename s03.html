@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Mètodes d'Investigació Criminològica Avançada</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/beige.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+
+			<!-- In between the <div="reveal"> and the <div class="slides">-->
+			<header style="position: absolute;top: 5px; left: 5px; right: 5px; text-align: center; z-index:500; font-size:50px; color:white; padding: 5px; font-family: 'League Gothic', Impact, sans-serif"></header>
+			<footer style="position: absolute;bottom: 5px; left: 5px; text-align: center; z-index:500; font-size:12px;  padding: 5px; font-family: Arial, Helvetica, sans-serif"></footer>
+
+
+			<div class="slides">
+
+		<section>
+		<h1>Mètodes d'Investigació Criminològica Avançada</h1>
+		<h3>Sessió 3: L'espai i el temps en criminologia</h3>
+		<p><a href="http://johnrbpalmer.com">John Palmer</a>
+		</section>
+
+	
+<section>
+<h2><a href="http://www.scielo.cl/scielo.php?script=sci_arttext&pid=S0250-71612006000300003">Luco & Lazo (2006)</a></h2>
+</section>
+
+<section>
+<h3>Teoria</h3>
+</section>
+
+<section>
+<h3>Teoria</h3>
+<ul><li>Segregación Residencial Socioeconómica (SRS) opera como factor explicativo o vector de escala macro de los niveles o índices duros de ciertos delitos en las grandes ciudades chilenas.</li>
+<li>El ciclo vital o edad es factor central para explicar las percepciones locales de las personas pobres en orden a nexos de inseguridad con variables espaciales o situacionales de escala micro.</li>
+</ul>
+</section>
+
+<section>
+<h3>Operalization</h3>
+</section>
+
+<section>
+<h3>Operalization</h3>
+<ul><li>(SRS) --> D</li>
+</ul>
+</section>
+
+
+			<section>
+				<img class="stretch" src="images/2Dseg_unevenness.png">
+			</section>
+
+			<section>
+				<img class="stretch" src="images/2Dseg_clustering.png">
+			</section>
+
+			<section>
+				<img class="stretch" src="images/2Dseg_concentration.png">
+			</section>
+
+			<section>
+				<img class="stretch" src="images/2Dseg_centralization.png">
+			</section>
+
+			<section>
+				<img class="stretch" src="images/2Dseg_exposure.png">
+				<p>Exposure</p>
+			</section>
+
+
+			<section>
+				<img class="stretch" src="images/buffaloTracts_pblack.png">
+			</section>
+
+			<section>
+				<img class="stretch" src="images/BuffSim3D_sampleof10.png">
+			</section>
+
+
+
+<section>
+<h3>Regressió lineal simple</h3>
+$$\hat{y} = a + bx$$
+</section>
+
+
+<section>
+<h3>Regressió lineal simple</h3>
+$$b = \frac{\sum\left(x - \bar{x}\right)\left(y - \bar{y}\right)}{\sum\left(x-\bar{x}\right)^2}$$
+<br>
+$$a = \bar{y} - b\bar{x}$$
+</section>
+
+
+<section>
+<small>
+<table class="reveal" style="text-align:center">
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">D</td><td>4,614.667<sup>**</sup></td><td>5,780.265<sup>*</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(2,018.930)</td><td>(2,894.437)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">VT</td><td></td><td>-12.625</td></tr>
+<tr><td style="text-align:left"></td><td></td><td>(22.048)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td style="text-align:left">Constant</td><td>1,009.147<sup>*</sup></td><td>931.826</td></tr>
+<tr><td style="text-align:left"></td><td>(523.853)</td><td>(550.727)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>20</td><td>20</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.225</td><td>0.240</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.182</td><td>0.150</td></tr>
+<tr><td style="text-align:left">Residual Std. Error</td><td>499.680 (df = 18)</td><td>509.279 (df = 17)</td></tr>
+<tr><td style="text-align:left">F Statistic</td><td>5.224<sup>**</sup> (df = 1; 18)</td><td>2.679<sup>*</sup> (df = 2; 17)</td></tr>
+<tr><td colspan="3" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="2" style="text-align:right"><sup>*</sup>p<0.1; <sup>**</sup>p<0.05; <sup>***</sup>p<0.01</td></tr>
+</table>
+</small>
+</section>
+
+<section>
+<img class="stretch" src="images/Luco_Lazo_seg.png">
+</section>
+
+<section>
+<img class="stretch" src="images/Luco_Lazo_seg_lm.png">
+</section>
+
+<section>
+<a href="3Dreg/index.html">3D</a>
+</section>
+
+
+<section>
+<h3>Correlació</h3>
+$$r = \left(\frac{s_x}{s_y}\right)b$$ 
+</section>
+
+
+<section>
+<h3>Regressió multivariant</h3>
+</section>
+
+<section>
+<h3>Models lineals generalitzats</h3>
+</section>
+
+
+
+
+
+							<section data-background="images/pencils.jpg" data-state="footer_pencils">
+								<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+									<h2>Assignments</h2>
+									<ul>
+										<li><b>Read</b>: <a href="http://ref.scielo.org/s96b4x">Arriagada Luco & Morales Lazo (2006)</li>
+									</ul>
+								</div>
+								<style>.footer_pencils footer:after { content: "Pencils, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+								<div>&nbsp;</div>	
+							</section>
+
+						</div>
+					</div>
+
+					<script src="lib/js/head.min.js"></script>
+					<script src="js/reveal.js"></script>
+
+					<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/math/math.js', async: true },
+				     // Zoom in and out with Alt+click
+        { src: 'plugin/zoom-js/zoom.js', async: true },
+
+
+				]
+			});
+		</script>
+	</body>
+	</html>
+

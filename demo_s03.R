@@ -12,13 +12,13 @@ p = ggplot(DS, aes(x = D, y = DMCS))
 p + geom_point()
 p + geom_point() + geom_smooth(method = "lm", se = TRUE)
 
-M = lm(DMCS~D, data=DS)
-summary(M)
+M0 = lm(DMCS~D, data=DS)
+summary(M0)
 
 M = lm(DMCS~D+VT, data=DS)
 summary(M)
 
-stargazer(M)
+stargazer(M0, M, type="html")
 
 newdat <- expand.grid(D=seq(.14,.36,by=.01),VT=seq(6.7,33.5,by=.1))
 

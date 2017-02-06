@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Mètodes d'Investigació Criminològica Avançada</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/beige.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+</head>
+<body>
+	<div class="reveal">
+
+		<!-- In between the <div="reveal"> and the <div class="slides">-->
+		<header style="position: absolute;top: 5px; left: 5px; right: 5px; text-align: center; z-index:500; font-size:50px; color:white; padding: 5px; font-family: 'League Gothic', Impact, sans-serif"></header>
+		<footer style="position: absolute;bottom: 5px; left: 5px; text-align: center; z-index:500; font-size:12px;  padding: 5px; font-family: Arial, Helvetica, sans-serif"></footer>
+
+
+		<div class="slides">
+
+			<section>
+				<h1>Mètodes d'Investigació Criminològica Avançada</h1>
+				<h3>Sessió 4: Dades, programari, i maquinari de SIG</h3>
+				<p><a href="http://johnrbpalmer.com">John Palmer</a>
+				</section>
+
+				<section>
+					<h2>Exemples</h2>
+					<ul>
+						<li><a target="_blank" href="https://www.flickr.com/groups/qgis/pool/with/21496534140/">QGIS Showcase</a></li>					
+						<li><a target="_blank" href="https://www.police.uk/merseyside/E8/">UK Crime Map</a></li>
+						<li><a target="_blank" href="http://maps.met.police.uk/">London Met Police Crime Map</a></li>
+						<li><a target="_blank" href="https://www.theguardian.com/news/datablog/interactive/2012/sep/13/hate-crime-map-england-wales">Guardian Hate Crime Map of UK</a></li>
+						<li><a target="_blank" href="https://maps.nyc.gov/crime/">NYC Crime Map</a></li>
+						<li><a target="_blank" target="_blank" href="http://uscommonsense.org/visualizations/dataset-crime-patterns-california/">US Common Sense, Crime Patterns in California</a></li>
+						<li><a target="_blank" href="http://mapadefosas.mjusticia.es/">Spain Historical Memory Map</a></li>
+						<li><a target="_blank" href="http://guatemala.situplatform.com/">SITU Guatemala Report</a></li>
+						<li><a target="_blank" href="https://www.nytimes.com/interactive/2016/12/07/world/asia/rodrigo-duterte-philippines-drugs-killings.html">NY Times, They Are Slaughtering Us Like Animals</a></li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Sistemes d'Informació Geogràfica</h2>
+					<ul>
+						<li>Dades</li>
+						<li>Maquinari</li>
+						<li>Programari</li>
+					</ul> 			
+				</section>
+
+
+				<section>
+					<h3>Dades</h3>
+					<ul>
+						<li>vectorials</li>
+						<li>raster</li>
+					</ul>
+				</section>
+
+				<section>
+					<h4>Dades vectorials</h4>
+					<img class="stretch" src="images/vector_bcn_zipcodes.svg">
+				</section>
+
+				<section>
+					<h4>Dades vectorials</h4>
+					<img class="stretch" src="images/svg_data.png">
+				</section>
+
+				<section>
+					<h4>Dades vectorials</h4>
+					<img class="stretch" src="images/vector_csv.png">
+				</section>
+
+				<section>
+					<h4>Dades vectorials</h4>
+					<ul>
+					<li>punts</li>
+					<li>polilínies</li>
+					<li>polígons</li>
+					</ul>
+				</section>
+
+				<section>
+				<h4>Dades vectorals: escala</h4>
+				<img class="stretch" src="images/large_scale.png">
+				</section>
+
+				<section>
+				<h4>Dades vectorals: escala</h4>
+				<img class="stretch" src="images/small_scale.png">
+				</section>
+
+				<section>
+					<h4>Dades vectorials</h4>
+					<a href="http://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/countries#countries14">Eurostat Country Shapefiles</a>
+				</section>
+
+
+				<section data-state="footer_SDS">
+				<h4>Dades raster</h4>
+					<img class="stretch" src="images/raster_data_qgis_gis_intro.png">
+				</section>
+
+				<section data-state="footer_SDS">
+				<h4>Dades raster</h4>
+					<img class="stretch" src="images/raster_data_zoomed.png">
+				</section>
+
+
+				<section data-state="footer_layer_stack">
+				<h2>Capes</h2>
+					<img class="stretch" src="images/layer_stack_cropped.png">
+				</section>
+
+				<section>
+				<h2>sistemes de referència de coordenades</h2>
+				</section>
+
+				<section>
+					<h2>Informació geogràfica</h2>
+					<ul>
+						<li>interactiu o no interactiu</li>
+						<li>dinàmica o estàtica</li>
+						<li>contingut</li>
+						<li>usuari</li>
+					</ul>
+				</section>
+
+
+
+
+				<section data-background="images/pencils.jpg" data-state="footer_pencils">
+					<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+						<h2>Assignments</h2>
+						<ul>
+							<li>llegir: <a href="http://docs.qgis.org/2.2/es/docs/training_manual/index.html">Manual de Aprendizaje QGIS, 1-5</li>
+
+						</ul>
+					</div>
+					<style>.footer_pencils footer:after { content: "Pencils, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+					<div>&nbsp;</div>	
+				</section>
+
+			</div>
+		</div>
+
+		<!-- Footers -->
+		<style>.footer_SDS footer:after { content: "Sutton et al., Una Ligera Introduccion a GIS (2009), http://docs.qgis.org/2.2/es/docs/gentle_gis_introduction/."; color:black;background-color: rgba(0,0,0,0); padding: 5px;}</style>	
+
+		<style>.footer_layer_stack footer:after { content: "Layer Stack, Ahlzen, CC BY-SA 2.0, http://wiki.openstreetmap.org/wiki/File:Layer-stack.jpg"; color:black;background-color: rgba(0,0,0,0); padding: 5px;}</style>	
+
+		<!-- End Footers -->
+
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/math/math.js', async: true },
+				     // Zoom in and out with Alt+click
+				     { src: 'plugin/zoom-js/zoom.js', async: true },
+
+
+				     ]
+				 });
+				</script>
+			</body>
+			</html>
+

@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Mètodes d'Investigació Criminològica Avançada</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/beige.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+</head>
+<body>
+	<div class="reveal">
+
+		<!-- In between the <div="reveal"> and the <div class="slides">-->
+		<header style="position: absolute;top: 5px; left: 5px; right: 5px; text-align: center; z-index:500; font-size:50px; color:white; padding: 5px; font-family: 'League Gothic', Impact, sans-serif"></header>
+		<footer style="position: absolute;bottom: 5px; left: 5px; text-align: center; z-index:500; font-size:12px;  padding: 5px; font-family: Arial, Helvetica, sans-serif"></footer>
+
+
+		<div class="slides">
+
+			<section>
+				<h1>Mètodes d'Investigació Criminològica Avançada</h1>
+				<h3>Sessió 5: QGIS i Mapes</h3>
+				<p><a href="http://johnrbpalmer.com">John Palmer</a>
+				</section>
+
+				<section>
+				<h2>Introducció dels connectors de QGIS</h2>
+				</section>
+
+				<section>
+				<img class="stretch" src="images/plugin_menu_screenshot.png">
+				</section>
+
+				<section>
+				<p>Instal·lar OpenLayers Plugin</p>
+				<p>Instal·lar mmqgis</p>
+				<p>Instal·lar qgis2web</p>
+				</section>
+
+
+				<section>
+				<h2>Exercici 1</h2>
+				<p>Fonts de dades de mapes</p>
+				</section>
+
+				<section>
+				<h3>Mapes raster</h3>
+				</section>
+
+				<section>
+				<img class="stretch" src="images/osl_plugin_menu.png">
+				</section>
+
+				<section>
+				<h3>Mapes vectorial</h3>
+				</section>
+
+
+				<section>
+				<h2>Formats d'arxius vectorials importants</h2>
+				<ul>
+				<li>ESRI Shapefile (.shp, .dbf, .prj ...)</li>
+				<li>XML (.xml, .osm)</li>
+				<li>SQLite (.sqlite)</li>
+				</ul>
+				</section>
+
+				<section>
+				<a target="_blank" href="http://www.openstreetmap.org">OpenStreetMap</a>
+				</section>
+
+
+				<section>
+				<img class="stretch" src="images/osm_vec.png">
+				</section>
+
+
+				<section>
+				<h2>Exercici 2</h2>
+				<p>L'extracció de capes d'arxius XML/OSM</p>
+				</section>
+
+
+				<section>
+				<h2>Exercici 3</h2>
+				<p>Fusió de dades</p>
+				</section>
+
+				<section>
+				<img class="stretch" src="images/euro_homicide_demo_map.png">
+				</section>
+
+				<section>
+				<h4>QGIS: Unions</h4>
+				<img class="stretch" src="images/join_screenshot.png">
+				</section>
+
+
+				<section>
+				<h2>Exercici 4</h2>
+				<p>Classificació</p>
+				</section>
+
+
+				<section>
+				<h2>Exercici 5</h2>
+				<p>Geocodificació</p>
+				</section>
+
+				
+
+				<section data-background="images/pencils.jpg" data-state="footer_pencils">
+					<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+						<h2>Projecte de Cartografia</h2>
+						<ul>
+							<li>13 de febrer: Tria un tema i fonts de dades</li>
+							<li>20 de febrer: Primer Mapa</li>
+							<li>27 de febrer: Segon Mapa</li>
+							<li>13 de març: Presentar mapes finals</li>
+
+						</ul>
+					</div>
+					<style>.footer_pencils footer:after { content: "Pencils, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+					<div>&nbsp;</div>	
+				</section>
+
+			</div>
+		</div>
+
+		<!-- Footers -->
+		<style>.footer_SDS footer:after { content: "Sutton et al., Una Ligera Introduccion a GIS (2009), http://docs.qgis.org/2.2/es/docs/gentle_gis_introduction/."; color:black;background-color: rgba(0,0,0,0); padding: 5px;}</style>	
+
+		<style>.footer_layer_stack footer:after { content: "Layer Stack, Ahlzen, CC BY-SA 2.0, http://wiki.openstreetmap.org/wiki/File:Layer-stack.jpg"; color:black;background-color: rgba(0,0,0,0); padding: 5px;}</style>	
+
+		<!-- End Footers -->
+
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/math/math.js', async: true },
+				     // Zoom in and out with Alt+click
+				     { src: 'plugin/zoom-js/zoom.js', async: true },
+
+
+				     ]
+				 });
+				</script>
+			</body>
+			</html>
+

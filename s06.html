@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Mètodes d'Investigació Criminològica Avançada</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/beige.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+</head>
+<body>
+	<div class="reveal">
+
+		<!-- In between the <div="reveal"> and the <div class="slides">-->
+		<header style="position: absolute;top: 5px; left: 5px; right: 5px; text-align: center; z-index:500; font-size:50px; color:white; padding: 5px; font-family: 'League Gothic', Impact, sans-serif"></header>
+		<footer style="position: absolute;bottom: 5px; left: 5px; text-align: center; z-index:500; font-size:12px;  padding: 5px; font-family: Arial, Helvetica, sans-serif"></footer>
+
+
+		<div class="slides">
+
+			<section>
+				<h1>Mètodes d'Investigació Criminològica Avançada</h1>
+				<h3>Sessió 6: Mapatge del delicte</h3>
+				<p><a href="http://johnrbpalmer.com">John Palmer</a>
+				</section>
+
+				<section>
+				<h2>Planificació d'un mapa del delicte</h2>
+				</section>
+
+				<section>
+				<h3>Tema</h3>
+				<p>Quina és la meva pregunta?</p>
+				<p>Què vull il·lustrar?</p>
+				</section>
+
+				<section>
+				<h3>Dades</h3>
+				<p>Quines fonts de dades es poden utilitzar?</p>
+				<p>Quins són els límits d'aquestes dades?</p>
+				</section>
+
+				<section>
+				<h3>Public</h3>
+				<p>Qui és el meu public?</p>
+				<p>Com van a utilitzar aquest mapa?</p>
+				</section>
+
+				<section>
+				<h3>Disseny</h3>
+				<p>Quines variables hauria de mostrar?</p>
+				<p>Vaig a mostrar canvis en el temps?</p>
+				<p>Quina és la forma més clara de presentar aquesta informació</p>
+				</section>
+
+				<section>
+				<h2>Projecte de Cartografia</h2>
+				</section>
+
+				<section>
+				<h2>Geocodificació</h2>
+				</section>
+
+				<section>
+				<img class="stretch" src="images/geocoding_ss1.png">
+				</section>
+
+
+				<section>
+				<img class="stretch" src="images/geocoding_map.svg">
+				</section>
+
+
+				<section>
+				<h2>Exercici 1</h2>
+				<p>Geocodificació</p>
+				</section>
+
+				<section>
+				<img class="stretch" src="images/geocoding_ss2.png">
+				</section>
+				<section>
+				<img class="stretch" src="images/geocoding_ss3.png">
+				</section>
+
+				<section>
+				<h2>Tipus de mapes</h2>
+				</section>
+
+				<section>
+				<h3>Choropleth</h3>
+				<img class="stretch" src="images/euro_homicide_demo_map.png">
+				</section>
+
+				<section>
+				<img class="stretch" src="images/graduated_ss.png">
+				</section>
+
+				<section>
+				<h3>Mapa de puntos</h3>
+				<img class="stretch" src="images/dot_map_demo.svg">
+				</section>
+
+				<section>
+				<img class="stretch" src="images/dot_map1.png">
+				</section>
+
+				<section>
+				<img class="stretch" src="images/dot_map2.png">
+				</section>
+
+
+				<section>
+				<h3>Símbolos proporcionales</h3>
+				<img class="stretch" src="images/map_example_prop_symb.svg">
+				</section>
+
+				<section>
+				<img class="stretch" src="images/prop_map.png">
+				</section>
+
+
+				<section>
+				<h2>Exercici 2</h2>
+				<p>Símbolos proporcionales</p>
+				</section>
+
+
+				<section>
+				<h3>Multivariable</h3>
+				<img class="stretch" src="images/map_example_multivariate.svg">
+				</section>
+
+		<section>
+				<img class="stretch" src="images/multi_map.png">
+				</section>
+
+		<section>
+				<img class="stretch" src="images/multi_map2.png">
+				</section>
+
+				<section>
+				<h2>Exercici 3</h2>
+				<p>Multivariable</p>
+				</section>
+
+				<section>
+				<h2>mapa de flux</h2>
+				</section>
+
+					<section>
+				<img class="stretch" src="images/flight_map.svg">
+				</section>
+
+
+
+
+<!--
+Eurostat data:
+				http://appsso.eurostat.ec.europa.eu/nui/show.do?query=BOOKMARK_DS-559176_QID_-2189685_UID_-3F171EB0&layout=ICCS,L,X,0;GEO,C,Y,0;UNIT,L,Z,0;TIME,C,Z,1;INDICATORS,C,Z,2;&zSelection=DS-559176TIME,2013;DS-559176INDICATORS,OBS_FLAG;DS-559176UNIT,NR;&rankName1=UNIT_1_2_-1_2&rankName2=INDICATORS_1_2_-1_2&rankName3=TIME_1_0_1_0&rankName4=ICCS_1_2_0_0&rankName5=GEO_1_2_0_1&rStp=&cStp=&rDCh=&cDCh=&rDM=true&cDM=true&footnes=false&empty=false&wai=false&time_mode=NONE&time_most_recent=false&lang=EN&cfo=%23%23%23%2C%23%23%23.%23%23%23
+-->
+				
+
+				<section data-background="images/pencils.jpg" data-state="footer_pencils">
+					<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+						<h2>Projecte de Cartografia</h2>
+						<ul>
+							<li>13 de febrer: Tria un tema i fonts de dades</li>
+							<li>20 de febrer: Primer Mapa</li>
+							<li>27 de febrer: Segon Mapa</li>
+							<li>13 de març: Presentar mapes finals</li>
+
+						</ul>
+					</div>
+					<style>.footer_pencils footer:after { content: "Pencils, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+					<div>&nbsp;</div>	
+				</section>
+
+			</div>
+		</div>
+
+		<!-- Footers -->
+		<style>.footer_SDS footer:after { content: "Sutton et al., Una Ligera Introduccion a GIS (2009), http://docs.qgis.org/2.2/es/docs/gentle_gis_introduction/."; color:black;background-color: rgba(0,0,0,0); padding: 5px;}</style>	
+
+		<style>.footer_layer_stack footer:after { content: "Layer Stack, Ahlzen, CC BY-SA 2.0, http://wiki.openstreetmap.org/wiki/File:Layer-stack.jpg"; color:black;background-color: rgba(0,0,0,0); padding: 5px;}</style>	
+
+		<!-- End Footers -->
+
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/math/math.js', async: true },
+				     // Zoom in and out with Alt+click
+				     { src: 'plugin/zoom-js/zoom.js', async: true },
+
+
+				     ]
+				 });
+				</script>
+			</body>
+			</html>
+

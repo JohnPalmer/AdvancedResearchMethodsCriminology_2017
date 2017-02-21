@@ -23,3 +23,7 @@ nav[data-toggle='toc'] {
 h1 {
   font-family: 'Anton', san-serif;
 }
+
+h2 {
+  font-style: italic;
+}

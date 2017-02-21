@@ -37,7 +37,7 @@
 
      <div class="jumbotron">
        <div class="container" style="text-align: center">
-        <h1 data-toc-skip><b>Mètodes d'Investigació Criminològica Avançada</b></h1>
+        <h1 data-toc-skip><b>Mètodes d'Investigació Criminològica Avançada</b></h2>
         <h3 data-toc-skip>Receptes de QGIS</h3>
         
         <address>
@@ -58,20 +58,22 @@
         <!-- main content area -->
         <div class="col-sm-9">
 
-          <h1>Choropleth</h1>
+        <h1>Tipus de mapes</h1>
 
-          <h2>Obtingues dades</h2>
+          <h2>Choropleth</h2>
+
+          <h3>Obtingues dades</h3>
 
           <p>Per practicar, utilitzarem dades de 2013 que he extret de la base de dades d'Eurostat <i><a href="http://appsso.eurostat.ec.europa.eu/nui/show.do?query=BOOKMARK_DS-559176_QID_-2189685_UID_-3F171EB0&layout=ICCS,L,X,0;GEO,C,Y,0;UNIT,L,Z,0;TIME,C,Z,1;INDICATORS,C,Z,2;&zSelection=DS-559176TIME,2013;DS-559176INDICATORS,OBS_FLAG;DS-559176UNIT,NR;&rankName1=UNIT_1_2_-1_2&rankName2=INDICATORS_1_2_-1_2&rankName3=TIME_1_0_1_0&rankName4=ICCS_1_2_0_0&rankName5=GEO_1_2_0_1&rStp=&cStp=&rDCh=&cDCh=&rDM=true&cDM=true&footnes=false&empty=false&wai=false&time_mode=NONE&time_most_recent=false&lang=EN&cfo=%23%23%23%2C%23%23%23.%23%23%23">Recorded offences by offence category - police data</a></i>. (He netejat ells una mica per fer l'exercici més fàcil.)</p>
 
           <a class="btn btn-default" href="data/crim_off_cat_rates.csv" role="button">Descarregar les dades</a>
 
-          <h2>Obtingues arxius de formes</h2>
+          <h3>Obtingues arxius de formes</h3>
           <p>Per practicar, utilitzarem <a href="http://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/countries">Eurostat geodatafiles de països</a> en l'escala de 1:3 milions. No us oblidis de descomprimir l'arxiu despres de descarregar-lo.</p>
 
           <a class="btn btn-default" href="http://ec.europa.eu/eurostat/cache/GISCO/geodatafiles/CNTR-03M-2013-SH.zip" role="button">Descarregar els arxius de formes</a>
 
-          <h2>Afegeix les formes</h2>
+          <h3>Afegeix les formes</h3>
 
           <p>Afegim les formes amb <kbd>Capa &rarr; Afegeix una capa &rarr; Afegeix una capa vectorial</kbd>, o amb el boton <span><img height="30px" src="images/r_add_vector_layer_button.png" alt="screenshot"></span>.</p>
 
@@ -124,7 +126,7 @@
             <p>Després de seleccionar els arxius i fer clic a "Open" en les dues finestres de diàleg, les formes apareixeran al llenç del mapa. Recorda que l'ordre de capes en el subfinestre de capes determina l'aparició en el llenç del mapa.</p>
 
 
-            <h2>Afegeix les dades</h2>
+            <h3>Afegeix les dades</h3>
 
             <p>Afegim les dades amb <kbd>Capa &rarr; Afegeix una capa &rarr; Afegeix una capa de text delimitada</kbd>, o amb el boton <span><img height="30px" src="images/r_add_csv_layer_button.png" alt="screenshot"></span>.</p>
 
@@ -176,7 +178,7 @@
             </div>
 
 
-            <h2>Uneix als polígons dels països a les dades.</h2>
+            <h3>Uneix als polígons dels països a les dades.</h3>
 
             <p>En el subfinestre de capes, fes doble clic a la capa <samp>CNTR_RG_03M_2013</samp> per obrir els seus propietats (o fes clic dret a la i seleciona <kbd>Propietats</kbd>.) Seleciona el panel de <kbd>Unions</kbd>.
 
@@ -213,7 +215,7 @@
 
             <p>Fes clic en <kbd>OK</kbd> i <kbd>Apply</kbd>.
 
-              <h2>Canvia l'estil dels polígons</h2>
+              <h3>Canvia l'estil dels polígons</h3>
 
               <p>En el panel <kbd>Estil</kbd>, seleciona l'estil <kbd>Graduat</kbd> i selecciona la <kbd>Columna</kbd> que vols representar al mapa (per aquesta demostració, <samp>crim_off_cat_rates_TOTAL</samp>). Selecciona el <kbd>Degredal</kbd> i <kbd>Mode</kbd> que t'agrada i fes clic al <kbd>Classifica</kbd>.</p>
 
@@ -232,7 +234,7 @@
                 </div>
               </div>
 
-              <h2>Neteja el mapa</h2>
+              <h3>Neteja el mapa</h3>
 
 
               <p>Eliminar les capes innecessàries i ampliar l'àrea d'interès.</p>
@@ -252,20 +254,20 @@
                 </div>
               </div>
 
-              <h1>Símbols Proporcionals</h1>
+              <h2>Símbols Proporcionals</h2>
 
-      <h2>Obtingues dades</h2>
+      <h3>Obtingues dades</h3>
 
           <p>Per practicar, utilitzarem dades de 2013 que he extret de la base de dades d'Eurostat <i><a href="http://appsso.eurostat.ec.europa.eu/nui/show.do?query=BOOKMARK_DS-559176_QID_-2189685_UID_-3F171EB0&layout=ICCS,L,X,0;GEO,C,Y,0;UNIT,L,Z,0;TIME,C,Z,1;INDICATORS,C,Z,2;&zSelection=DS-559176TIME,2013;DS-559176INDICATORS,OBS_FLAG;DS-559176UNIT,NR;&rankName1=UNIT_1_2_-1_2&rankName2=INDICATORS_1_2_-1_2&rankName3=TIME_1_0_1_0&rankName4=ICCS_1_2_0_0&rankName5=GEO_1_2_0_1&rStp=&cStp=&rDCh=&cDCh=&rDM=true&cDM=true&footnes=false&empty=false&wai=false&time_mode=NONE&time_most_recent=false&lang=EN&cfo=%23%23%23%2C%23%23%23.%23%23%23">Recorded offences by offence category - police data</a></i>. (He netejat ells una mica per fer l'exercici més fàcil.)</p>
 
           <a class="btn btn-default" href="data/crim_off_cat_rates.csv" role="button">Descarregar les dades</a>
 
-          <h2>Obtingues arxius de formes</h2>
+          <h3>Obtingues arxius de formes</h3>
           <p>Per practicar, utilitzarem <a href="http://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/countries">Eurostat geodatafiles de països</a> en l'escala de 1:3 milions. No us oblidis de descomprimir l'arxiu despres de descarregar-lo.</p>
 
           <a class="btn btn-default" href="http://ec.europa.eu/eurostat/cache/GISCO/geodatafiles/CNTR-03M-2013-SH.zip" role="button">Descarregar els arxius de formes</a>
 
-          <h2>Afegeix les formes</h2>
+          <h3>Afegeix les formes</h3>
 
           <p>Afegim les formes amb <kbd>Capa &rarr; Afegeix una capa &rarr; Afegeix una capa vectorial</kbd>, o amb el boton <span><img height="30px" src="images/r_add_vector_layer_button.png" alt="screenshot"></span>.</p>
 
@@ -318,7 +320,7 @@
             <p>Després de seleccionar els arxius i fer clic a "Open" en les dues finestres de diàleg, les formes apareixeran al llenç del mapa. Recorda que l'ordre de capes en el subfinestre de capes determina l'aparició en el llenç del mapa.</p>
 
 
-            <h2>Afegeix les dades</h2>
+            <h3>Afegeix les dades</h3>
 
             <p>Afegim les dades amb <kbd>Capa &rarr; Afegeix una capa &rarr; Afegeix una capa de text delimitada</kbd>, o amb el boton <span><img height="30px" src="images/r_add_csv_layer_button.png" alt="screenshot"></span>.</p>
 
@@ -370,7 +372,7 @@
             </div>
 
 
-            <h2>Uneix als punts centrals dels països a les dades.</h2>
+            <h3>Uneix als punts centrals dels països a les dades.</h3>
 
             <p>En el subfinestre de capes, fes doble clic a la capa <samp>CNTR_LB_03M_2013</samp> per obrir els seus propietats (o fes clic dret a la i seleciona <kbd>Propietats</kbd>.) Seleciona el panel de <kbd>Unions</kbd>.
 
@@ -407,7 +409,7 @@
 
             <p>Fes clic en <kbd>OK</kbd> i <kbd>Apply</kbd>.
 
-              <h2>Canvia l'estil dels punts centrals</h2>
+              <h3>Canvia l'estil dels punts centrals</h3>
 
               <p>En el panel <kbd>Estil</kbd>, seleciona l'estil <kbd>Graduat</kbd> i selecciona la <kbd>Columna</kbd> que vols representar al mapa (per aquesta demostració, <samp>crim_off_cat_rates_TOTAL</samp>). Selecciona el <kbd>Degredal</kbd> i <kbd>Mode</kbd> que t'agrada i fes clic al <kbd>Classifica</kbd>.</p>
 
@@ -426,7 +428,7 @@
                 </div>
               </div>
 
-              <h2>Neteja el mapa</h2>
+              <h3>Neteja el mapa</h3>
 
 
               <p>Eliminar les capes innecessàries i ampliar l'àrea d'interès.</p>
@@ -448,22 +450,22 @@
 
 
 
-              <h1>Multivariable</h1>
+              <h2>Multivariable</h2>
 
 
 
-          <h2>Obtingues dades</h2>
+          <h3>Obtingues dades</h3>
 
           <p>Per practicar, utilitzarem dades de 2013 que he extret de la base de dades d'Eurostat <i><a href="http://appsso.eurostat.ec.europa.eu/nui/show.do?query=BOOKMARK_DS-559176_QID_-2189685_UID_-3F171EB0&layout=ICCS,L,X,0;GEO,C,Y,0;UNIT,L,Z,0;TIME,C,Z,1;INDICATORS,C,Z,2;&zSelection=DS-559176TIME,2013;DS-559176INDICATORS,OBS_FLAG;DS-559176UNIT,NR;&rankName1=UNIT_1_2_-1_2&rankName2=INDICATORS_1_2_-1_2&rankName3=TIME_1_0_1_0&rankName4=ICCS_1_2_0_0&rankName5=GEO_1_2_0_1&rStp=&cStp=&rDCh=&cDCh=&rDM=true&cDM=true&footnes=false&empty=false&wai=false&time_mode=NONE&time_most_recent=false&lang=EN&cfo=%23%23%23%2C%23%23%23.%23%23%23">Recorded offences by offence category - police data</a></i>. (He netejat ells una mica per fer l'exercici més fàcil.) No us oblidis de descomprimir l'arxiu despres de descarregar-lo.</p>
 
           <a class="btn btn-default" href="data/crim_off_cat.zip" role="button">Descarregar les dades</a>
 
-          <h2>Obtingues arxius de formes</h2>
+          <h3>Obtingues arxius de formes</h3>
           <p>Per practicar, utilitzarem <a href="http://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/countries">Eurostat geodatafiles de països</a> en l'escala de 1:3 milions. No us oblidis de descomprimir l'arxiu despres de descarregar-lo.</p>
 
           <a class="btn btn-default" href="http://ec.europa.eu/eurostat/cache/GISCO/geodatafiles/CNTR-03M-2013-SH.zip" role="button">Descarregar els arxius de formes</a>
 
-          <h2>Afegeix les formes</h2>
+          <h3>Afegeix les formes</h3>
 
           <p>Afegim les formes amb <kbd>Capa &rarr; Afegeix una capa &rarr; Afegeix una capa vectorial</kbd>, o amb el boton <span><img height="30px" src="images/r_add_vector_layer_button.png" alt="screenshot"></span>.</p>
 
@@ -516,7 +518,7 @@
             <p>Després de seleccionar els arxius i fer clic a "Open" en les dues finestres de diàleg, les formes apareixeran al llenç del mapa. Recorda que l'ordre de capes en el subfinestre de capes determina l'aparició en el llenç del mapa.</p>
 
 
-            <h2>Afegeix les dades</h2>
+            <h3>Afegeix les dades</h3>
 
             <p>Afegim les dades amb <kbd>Capa &rarr; Afegeix una capa &rarr; Afegeix una capa de text delimitada</kbd>, o amb el boton <span><img height="30px" src="images/r_add_csv_layer_button.png" alt="screenshot"></span>.</p>
 
@@ -568,7 +570,7 @@
             </div>
 
 
-            <h2>Uneix als polígons dels països a les dades.</h2>
+            <h3>Uneix als polígons dels països a les dades.</h3>
 
             <p>En el subfinestre de capes, fes doble clic a la capa <samp>CNTR_RG_03M_2013</samp> per obrir els seus propietats (o fes clic dret a la i seleciona <kbd>Propietats</kbd>.) Seleciona el panel de <kbd>Unions</kbd>.
 
@@ -621,7 +623,7 @@
 
             <p>Fes clic en <kbd>OK</kbd> i <kbd>Apply</kbd>.
 
-              <h2>Canvia l'estil dels polígons</h2>
+              <h3>Canvia l'estil dels polígons</h3>
 
               <p>En el panel <kbd>Estil</kbd>, seleciona l'estil <kbd>Graduat</kbd> i selecciona la <kbd>Columna</kbd> que vols representar al mapa (per aquesta demostració, <samp>crim_off_cat_rates_TOTAL</samp>). Selecciona el <kbd>Degredal</kbd> i <kbd>Mode</kbd> que t'agrada i fes clic al <kbd>Classifica</kbd>.</p>
 
@@ -691,7 +693,7 @@
 
               <p>Fes clic a <kbd>OK</kbd> i mira el mapa. Si els diagrames son massa gran o massa petit, torna al propietats dels polígons i ajustar la mida. (Per aquesta demonstració he utilizat 30.)
 
-              <h2>Neteja el mapa</h2>
+              <h3>Neteja el mapa</h3>
 
 
               <p>Eliminar les capes innecessàries i ampliar l'àrea d'interès.</p>
@@ -710,6 +712,307 @@
                   </div>
                 </div>
               </div>
+
+
+        <h1>L'agregació dels punts</h1>
+
+        <h2>Comptant punts en unitats d'àrees existents</h2>
+
+        <h3>Obtingues dades</h3>
+
+          <p>Per practicar, utilitzarem dades de assalts en Nova York en novembre i disembre 2016 que he extret de <a href="https://data.cityofnewyork.us/">NYC Open Data</a>.</p>
+
+          <a class="btn btn-default" href="data/NYPD_Complaint_Map__Year_to_Date.csv" role="button">Descarregar les dades</a>
+
+          <h3>Obtingues arxius de formes</h3>
+          <p>Per practicar, utilitzarem un arxiu geojson amb polygons dels recintes del Departament de Policia de Nova York que he descargat de <a href="https://data.cityofnewyork.us/">NYC Open Data</a>.</p>
+
+          <a class="btn btn-default" href="data/Police Precincts.geojson" role="button">Descarregar els arxius de formes</a>
+
+          <h3>Afegeix les formes</h3>
+
+          <p>Afegim les formes amb <kbd>Capa &rarr; Afegeix una capa &rarr; Afegeix una capa vectorial</kbd>, o amb el boton <span><img height="30px" src="images/r_add_vector_layer_button.png" alt="screenshot"></span>.</p>
+
+          <div class="well">
+            <div class="media">
+              <div class="media-body">
+                <h4 class="media-heading">Menús principals</h4>
+                <p>QGIS Versió 2.18.2 per Mac</p>
+              </div>
+              <div class="media-right">
+                <a href="images/r_add_vector_layer_1.png">
+                  <img src="images/r_add_vector_layer_1.png" class="media-object" style="max-width:700px">
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <p>Selecciona el arxiu geojson i fes clic al <kbd>Open</kbd>.
+
+          <div class="well">
+            <div class="media">
+              <div class="media-body">
+                <h4 class="media-heading">Selecció d'arxius</h4>
+                <p>QGIS Versió 2.18.2 per Mac</p>
+              </div>
+              <div class="media-right">
+                <a href="images/add_geojson_precincts.png">
+                  <img src="images/add_geojson_precincts.png" class="media-object" style="max-width:700px">
+                </a>
+              </div>
+            </div>
+          </div>
+
+
+            <h3>Afegeix les dades</h3>
+
+            <p>Afegim les dades amb <kbd>Capa &rarr; Afegeix una capa &rarr; Afegeix una capa de text delimitada</kbd>, o amb el boton <span><img height="30px" src="images/r_add_csv_layer_button.png" alt="screenshot"></span>.</p>
+
+            <p>Selecciona el arxiu de dades (per aquesta demostració, això és <samp>NYPD_Complaint_Map__Year_to_Date.csv</samp>). En la linea <kbd>Definició de geometria</kbd>, selecciona <kbd>Coordenades del punt</kbd> i fes clic a <kbd>OK</kbd>.</p>
+
+            <div class="well">
+              <div class="media">
+                <div class="media-body">
+                  <h4 class="media-heading">Selecció d'arxius</h4>
+                  <p>QGIS Versió 2.18.2 per Mac</p>
+                </div>
+                <div class="media-right">
+                  <a href="images/add_point_data.png">
+                    <img src="images/add_point_data.png" class="media-object" style="max-width:700px">
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <p>Selecciona una sistema de referència de coordinades (SRC). Si els coordinades dels punts son latitud i longitud, el SRC correcte es WGS 84 (EPSG 4326) i normalment esta seleccionat per defecte. Si tens dades amb altres coordinades, haurias de mirar en la documentació de les dades per a buscar el SRC.</p>
+
+            <div class="well">
+              <div class="media">
+                <div class="media-body">
+                  <h4 class="media-heading">Selecció del sistema de referència de coordinades</h4>
+                  <p>QGIS Versió 2.18.2 per Mac</p>
+                </div>
+                <div class="media-right">
+                  <a href="images/add_point_data_proj.png">
+                    <img src="images/add_point_data_proj.png" class="media-object" style="max-width:700px">
+                  </a>
+                </div>
+              </div>
+            </div>
+
+
+            <p>El teu finestre hauria de d'aparèixer això (més o menys):</p>
+
+
+    <div class="well">
+              <div class="media">
+                <div class="media-body">
+                  <h4 class="media-heading">Dades de punts i polígons afegit</h4>
+                  <p>QGIS Versió 2.18.2 per Mac</p>
+                </div>
+                <div class="media-right">
+                  <a href="images/add_point_data_added.png">
+                    <img src="images/add_point_data_added.png" class="media-object" style="max-width:700px">
+                  </a>
+                </div>
+              </div>
+            </div>
+
+
+          <h3>Comptar els punts en els polígons</h3>
+
+ <p>Compta els punts en els polígons amb <kbd>Vectorial &rarr; Analysis Tools &rarr; Compte als punts al polígon</kbd>.</p>
+
+    <div class="well">
+              <div class="media">
+                <div class="media-body">
+                  <h4 class="media-heading">Comptar punts en polígons</h4>
+                  <p>QGIS Versió 2.18.2 per Mac</p>
+                </div>
+                <div class="media-right">
+                  <a href="images/count_points_polys.png">
+                    <img src="images/count_points_polys.png" class="media-object" style="max-width:700px">
+                  </a>
+                </div>
+              </div>
+            </div>
+
+
+
+ <p>En la subfinestre dels paràmetres, comprova que les capes seleccionades són correctes i fes clic al <kbd>Run</kbd>.</p>
+
+
+    <div class="well">
+              <div class="media">
+                <div class="media-body">
+                  <h4 class="media-heading">Comptar punts en polígons: paràmetres</h4>
+                  <p>QGIS Versió 2.18.2 per Mac</p>
+                </div>
+                <div class="media-right">
+                  <a href="images/count_points_polys_settings.png">
+                    <img src="images/count_points_polys_settings.png" class="media-object" style="max-width:700px">
+                  </a>
+                </div>
+              </div>
+            </div>
+
+<p>A la subfinestra dels capes ara tens una nova capa de polígons que inclou les compta com un atribut. Pots seguir el recepte per un Choropleth o un altre recepte amb aquesta informació aggregada.</p>
+
+    <div class="well">
+              <div class="media">
+                <div class="media-body">
+                  <h4 class="media-heading">Nova capa</h4>
+                  <p>QGIS Versió 2.18.2 per Mac</p>
+                </div>
+                <div class="media-right">
+                  <a href="images/count_points_done.png">
+                    <img src="images/count_points_done.png" class="media-object" style="max-width:700px">
+                  </a>
+                </div>
+              </div>
+            </div>
+
+
+
+
+        <h2>Comptant punts en una graella</h2>
+
+        <h3>Obtingues dades</h3>
+
+          <p>Per practicar, utilitzarem dades de assalts en Nova York en novembre i disembre 2016 que he extret de <a href="https://data.cityofnewyork.us/">NYC Open Data</a>.</p>
+
+          <a class="btn btn-default" href="data/NYPD_Complaint_Map__Year_to_Date.csv" role="button">Descarregar les dades</a>
+
+          <h3>Obtingues arxius de formes</h3>
+          <p>Per practicar, utilitzarem un arxiu geojson amb polygons dels recintes del Departament de Policia de Nova York que he descargat de <a href="https://data.cityofnewyork.us/">NYC Open Data</a>.</p>
+
+          <a class="btn btn-default" href="data/Police Precincts.geojson" role="button">Descarregar els arxius de formes</a>
+
+          <h3>Afegeix les formes</h3>
+
+          <p>Afegim les formes amb <kbd>Capa &rarr; Afegeix una capa &rarr; Afegeix una capa vectorial</kbd>, o amb el boton <span><img height="30px" src="images/r_add_vector_layer_button.png" alt="screenshot"></span>.</p>
+
+          <div class="well">
+            <div class="media">
+              <div class="media-body">
+                <h4 class="media-heading">Menús principals</h4>
+                <p>QGIS Versió 2.18.2 per Mac</p>
+              </div>
+              <div class="media-right">
+                <a href="images/r_add_vector_layer_1.png">
+                  <img src="images/r_add_vector_layer_1.png" class="media-object" style="max-width:700px">
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <p>Selecciona el arxiu geojson i fes clic al <kbd>Open</kbd>.
+
+          <div class="well">
+            <div class="media">
+              <div class="media-body">
+                <h4 class="media-heading">Selecció d'arxius</h4>
+                <p>QGIS Versió 2.18.2 per Mac</p>
+              </div>
+              <div class="media-right">
+                <a href="images/add_geojson_precincts.png">
+                  <img src="images/add_geojson_precincts.png" class="media-object" style="max-width:700px">
+                </a>
+              </div>
+            </div>
+          </div>
+
+
+            <h3>Afegeix les dades</h3>
+
+            <p>Afegim les dades amb <kbd>Capa &rarr; Afegeix una capa &rarr; Afegeix una capa de text delimitada</kbd>, o amb el boton <span><img height="30px" src="images/r_add_csv_layer_button.png" alt="screenshot"></span>.</p>
+
+            <p>Selecciona el arxiu de dades (per aquesta demostració, això és <samp>NYPD_Complaint_Map__Year_to_Date.csv</samp>). En la linea <kbd>Definició de geometria</kbd>, selecciona <kbd>Coordenades del punt</kbd> i fes clic a <kbd>OK</kbd>.</p>
+
+            <div class="well">
+              <div class="media">
+                <div class="media-body">
+                  <h4 class="media-heading">Selecció d'arxius</h4>
+                  <p>QGIS Versió 2.18.2 per Mac</p>
+                </div>
+                <div class="media-right">
+                  <a href="images/add_point_data.png">
+                    <img src="images/add_point_data.png" class="media-object" style="max-width:700px">
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <p>Selecciona una sistema de referència de coordinades (SRC). Si els coordinades dels punts son latitud i longitud, el SRC correcte es WGS 84 (EPSG 4326) i normalment esta seleccionat per defecte. Si tens dades amb altres coordinades, haurias de mirar en la documentació de les dades per a buscar el SRC.</p>
+
+            <div class="well">
+              <div class="media">
+                <div class="media-body">
+                  <h4 class="media-heading">Selecció del sistema de referència de coordinades</h4>
+                  <p>QGIS Versió 2.18.2 per Mac</p>
+                </div>
+                <div class="media-right">
+                  <a href="images/add_point_data_proj.png">
+                    <img src="images/add_point_data_proj.png" class="media-object" style="max-width:700px">
+                  </a>
+                </div>
+              </div>
+            </div>
+
+
+            <p>El teu finestre hauria de d'aparèixer això (més o menys):</p>
+
+
+    <div class="well">
+              <div class="media">
+                <div class="media-body">
+                  <h4 class="media-heading">Dades de punts i polígons afegit</h4>
+                  <p>QGIS Versió 2.18.2 per Mac</p>
+                </div>
+                <div class="media-right">
+                  <a href="images/add_point_data_added.png">
+                    <img src="images/add_point_data_added.png" class="media-object" style="max-width:700px">
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <h3>Fes una graella</h3>
+
+
+ <p>Tenim diverses opcions per fer una graella. Utilitzarem <kbd>MMQGIS &rarr; Create &rarr; Create Grid Layer</kbd>.</p>
+
+    <div class="well">
+              <div class="media">
+                <div class="media-body">
+                  <h4 class="media-heading">Graella</h4>
+                  <p>QGIS Versió 2.18.2 per Mac</p>
+                </div>
+                <div class="media-right">
+                  <a href="images/mmqgisgrid.png">
+                    <img src="images/mmqgisgrid.png" class="media-object" style="max-width:700px">
+                  </a>
+                </div>
+              </div>
+            </div>
+
+
+    <div class="well">
+              <div class="media">
+                <div class="media-body">
+                  <h4 class="media-heading">Graella</h4>
+                  <p>QGIS Versió 2.18.2 per Mac</p>
+                </div>
+                <div class="media-right">
+                  <a href="images/mmqgisgrid_options.png">
+                    <img src="images/mmqgisgrid_options.png" class="media-object" style="max-width:700px">
+                  </a>
+                </div>
+              </div>
+            </div>
+
+
+
 
 
 

@@ -25,6 +25,20 @@ M = ols('app ~ n_subwayex', data=D).fit()
 print(M.summary())
 
 fig = plt.figure(figsize=(12,8))
-fig = smg.regressionplots.plot_regress_exog(M, 'n_subwayex', fig=fig)
+fig = sm.graphics.plot_regress_exog(M, 'n_subwayex', fig=fig)
 plt.show()
 
+
+
+
+D = ps.pdio.read_files(shp_path)
+
+qW = ps.queen_from_shapefile(shp_path)
+
+mi = ps.Moran(D.n_assaults[:, None], qW, two_tailed=False)
+
+mi.I
+mi.EI
+
+mi.p_rand
+dir(mi)

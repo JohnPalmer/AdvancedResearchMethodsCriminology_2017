@@ -1,0 +1,299 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Mètodes d'Investigació Criminològica Avançada</title>
+
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/beige.css">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<link rel="stylesheet" href="css/jp_style.css">
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement( 'link' );
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	</script>
+</head>
+<body>
+	<div class="reveal">
+
+		<!-- In between the <div="reveal"> and the <div class="slides">-->
+		<header style="position: absolute;top: 5px; left: 5px; right: 5px; text-align: center; z-index:500; font-size:50px; color:white; padding: 5px; font-family: 'League Gothic', Impact, sans-serif"></header>
+		<footer style="position: absolute;bottom: 5px; left: 5px; text-align: center; z-index:500; font-size:12px;  padding: 5px; font-family: Arial, Helvetica, sans-serif"></footer>
+
+
+		<div class="slides">
+
+			<section>
+				<h1>Mètodes d'Investigació Criminològica Avançada</h1>
+				<h3>Sessió 14: autocorrelació i inferència</h3>
+				<p><a href="http://johnrbpalmer.com">John Palmer</a>
+				</section>
+
+				<section>
+				<h4>Assalts a Nova York</h4>
+				<img class="stretch", src="images/nyc_assaults_per_person.png">
+				</section>
+
+
+				<section>
+				<h4>Dades</h4>
+				<a href="data/nyc_zipcodes_epsg4326.geojson">Zipcodes</a><br>
+				<a href="data/NYPD_Complaint_Map__Year_to_Date.csv">Assalts</a><br>
+				<a href="data/SubwayEntrances.geojson">Entrades de metro</a><br>
+				<a href="data/Demographic_Statistics_By_Zip_Code.csv">Dades de població</a>
+				<p>o</p>
+				<a href="data/nyc_assaults_subway_data.zip">Dades processades</a>
+				</section>
+
+				<section>
+				<h4>un nou paquet</h4>
+				<pre><code>pip install ggplot</code></pre>
+				</section>
+
+				<section>
+				<h2>Regressió espacial</h2>
+				</section>
+
+
+				<section>
+				<img class="stretch" src="images/c14_pop_assault.png">
+				</section>
+
+				<section>
+				<img class="stretch" src="images/c14_subways_assaults.png">
+				</section>
+
+
+				<section>
+				<h4>I del Moran</h4>
+
+				$$ I = \frac{N}{S_0} \sum_{i=1}^N\sum_{j=1}^N \frac{w_{ij}(x_i-\mu)(x_j-\mu)}{\sum_{i=1}^N (x_i - \mu)^2} $$ <br>
+
+				$$ S_0 = \sum_{i=1}^N\sum_{j=1}^N w_{ij} $$
+				</section>
+
+				<section>
+				<h4>I del Moran</h4>
+				$$ E(I) = \frac{-1}{N-1} $$
+				</section>
+
+				<section>
+				<h4>I del Moran</h4>
+<pre><code>>>> mi = ps.Moran(D.n_assaults.values[:, None], qW, two_tailed=False)
+>>> print mi.I
+0.616066043999
+>>> print mi.EI
+-0.00381679389313
+>>> print mi.p_norm
+0.0</code></pre>
+				</section>
+
+
+<section>
+<h4>OLS Model</h4>
+$$ y = \alpha + \beta X + \epsilon$$
+</section>
+
+				<section>
+<pre><code>>>> m1 = ps.spreg.OLS(D[['n_assaults']].values, D[['n_subwayex', 'POPULATION']].values, w=qW, moran=True, spat_diag=True, name_x=D[['n_subwayex', 'POPULATION']].columns.tolist(), name_y='n_assaults')
+</code></pre>
+				</section>
+
+<section>
+<pre><code>print m1.summary</code></pre>
+
+<pre style="font-size: 18px">
+-----------------------------------------------------------------------------
+    Variable     Coefficient       Std.Error     t-Statistic     Probability
+-----------------------------------------------------------------------------
+    CONSTANT      -0.9799386       0.7612464      -1.2872817       0.1991409
+  n_subwayex       0.1073215       0.0547145       1.9614811       0.0508900
+  POPULATION       0.0003134       0.0000193      16.2570864       0.0000000
+-----------------------------------------------------------------------------
+</pre>
+</section>
+
+<section>
+<h4>Model amb retard espacial en un variable independent</h4>
+$$ y = \alpha + \beta X + \rho W X +  \epsilon$$
+</section>
+
+
+<section>
+<pre><code>>>> sl = ps.lag_spatial(qW, D.n_subwayex.values[:, None])
+>>> D_sl = D.assign(w_subway = sl)
+>>> m2 = ps.spreg.OLS(D[['n_assaults']].values, D_sl[['n_subwayex', 'w_subway', 'POPULATION']].values, w=qW, spat_diag=True, moran=True, name_x=D_sl[['n_subwayex', 'w_subway', 'POPULATION']].columns.tolist(), name_y='assaults')
+</code></pre>
+</section>
+
+<section>
+<pre><code>print m2.summary</code></pre>
+
+<pre style="font-size: 18px">
+-----------------------------------------------------------------------------
+    Variable     Coefficient       Std.Error     t-Statistic     Probability
+-----------------------------------------------------------------------------
+    CONSTANT      -0.9350325       0.8211556      -1.1386788       0.2558893
+  n_subwayex       0.1108068       0.0596897       1.8563816       0.0645347
+    w_subway      -0.0097803       0.0662800      -0.1475611       0.8828040
+  POPULATION       0.0003136       0.0000194      16.1618214       0.0000000
+-----------------------------------------------------------------------------
+</pre>
+</section>
+
+<section>
+<h4>Model amb retard espacial en el variable dependent</h4>
+$$ y = \alpha + \beta X + \rho W Y +  \epsilon$$
+</section>
+
+
+<section>
+<pre><code>>>> m3 = ps.spreg.GM_Lag(D[['n_assaults']].values, D[['n_subwayex', 'POPULATION']].values, w=qW, spat_diag=True, name_x=D[['n_subwayex', 'POPULATION']].columns.tolist(), name_y='assaults')
+</code></pre>
+</section>
+
+
+<section>
+<pre><code>print m3.summary</code></pre>
+
+<pre style="font-size: 18px">
+-----------------------------------------------------------------------------
+    Variable     Coefficient       Std.Error     z-Statistic     Probability
+-----------------------------------------------------------------------------
+    CONSTANT      -1.1476204       0.7878837      -1.4565859       0.1452307
+  n_subwayex       0.1070234       0.0531855       2.0122685       0.0441916
+  POPULATION       0.0003025       0.0000257      11.7919761       0.0000000
+  W_assaults       0.0490608       0.0791849       0.6195725       0.5355393
+-----------------------------------------------------------------------------
+</pre>
+</section>
+
+
+<section>
+<h4>Model amb retard espacial en els variables dependent i independent</h4>
+$$ y = \alpha + \beta X + \rho_1 W X + \rho_2 W X +  \epsilon$$
+</section>
+
+
+<section>
+<pre><code>>>> m4 = ps.spreg.GM_Lag(D[['n_assaults']].values, D_sl[['n_subwayex', 'w_subway', 'POPULATION']].values, w=qW, spat_diag=True, name_x=D_sl[['n_subwayex', 'w_subway', 'POPULATION']].columns.tolist(), name_y='assaults')
+</code></pre>
+</section>
+
+
+<section>
+<pre><code>print m4.summary</code></pre>
+
+<pre style="font-size: 18px">
+-----------------------------------------------------------------------------
+    Variable     Coefficient       Std.Error     z-Statistic     Probability
+-----------------------------------------------------------------------------
+    CONSTANT      -6.6648736       7.3028906      -0.9126350       0.3614345
+  n_subwayex       0.1159472       0.2093162       0.5539331       0.5796247
+    w_subway       0.1553713       0.3501647       0.4437093       0.6572528
+  POPULATION       0.0004002       0.0001072       3.7311904       0.0001906
+  W_assaults      -0.0328097       0.3687893      -0.0889659       0.9291090
+-----------------------------------------------------------------------------
+</pre>
+</section>
+
+
+<section>
+<h4>Model de errors espacials</h4>
+$$ y = \alpha + \beta X + \epsilon$$
+$$ \epsilon = \lambda W u + e$$
+</section>
+
+
+<section>
+<pre><code>>>> m5 = ps.spreg.GM_Error(D[['n_assaults']].values, D_sl[['n_subwayex', 'w_subway', 'POPULATION']].values, w=qW, name_x=D_sl[['n_subwayex', 'w_subway', 'POPULATION']].columns.tolist(), name_y='assaults')
+</code></pre>
+</section>
+
+
+<section>
+<pre><code>print m5.summary</code></pre>
+
+<pre style="font-size: 18px">
+-----------------------------------------------------------------------------
+    Variable     Coefficient       Std.Error     z-Statistic     Probability
+-----------------------------------------------------------------------------
+    CONSTANT      -0.4182478       0.7658168      -0.5461460       0.5849656
+  n_subwayex       0.1138799       0.0521001       2.1857904       0.0288309
+    w_subway      -0.0254865       0.0686286      -0.3713680       0.7103635
+  POPULATION       0.0002950       0.0000209      14.1411241       0.0000000
+      lambda       0.5980972    
+-----------------------------------------------------------------------------
+</pre>
+</section>
+
+
+
+				<section>
+			<script src="https://gist.github.com/JohnPalmer/0a8a63fccdc6e46245c69c289e042ce5.js"></script>
+				</section>
+
+
+
+				<section>
+
+				<section data-background="images/pencils.jpg" data-state="footer_pencils">
+					<div style="background-color: rgba(255, 255, 255, .95); padding:20px;">
+						
+						<ul>
+							<li><b>Projecte</b>: 15 de març: Presentar mapes finals</li>
+
+						</ul>
+					</div>
+					<style>.footer_pencils footer:after { content: "Pencils, Public Domain, Wikimedia Commons"; color:white;background-color: rgba(0,0,0,0.5); padding: 5px;}</style>							
+					<div>&nbsp;</div>	
+				</section>
+
+			</div>
+		</div>
+
+		<!-- Footers -->
+		<style>.footer_SDS footer:after { content: "Sutton et al., Una Ligera Introduccion a GIS (2009), http://docs.qgis.org/2.2/es/docs/gentle_gis_introduction/."; color:black;background-color: rgba(0,0,0,0); padding: 5px;}</style>	
+
+		<style>.footer_layer_stack footer:after { content: "Layer Stack, Ahlzen, CC BY-SA 2.0, http://wiki.openstreetmap.org/wiki/File:Layer-stack.jpg"; color:black;background-color: rgba(0,0,0,0); padding: 5px;}</style>	
+
+		<!-- End Footers -->
+
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+								   // Transition style
+			    transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+				{ src: 'plugin/markdown/marked.js' },
+				{ src: 'plugin/markdown/markdown.js' },
+				{ src: 'plugin/notes/notes.js', async: true },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/math/math.js', async: true },
+				     // Zoom in and out with Alt+click
+				     { src: 'plugin/zoom-js/zoom.js', async: true },
+
+
+				     ]
+				 });
+				</script>
+			</body>
+			</html>
+
